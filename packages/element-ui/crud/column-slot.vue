@@ -53,6 +53,7 @@
                 v-if="crud.getSlotName(column,'F',crud.$scopedSlots)"></slot>
           <form-temp v-else
                      :column="column"
+                     :row="row"
                      :size="crud.isMediumSize"
                      :dic="(crud.cascaderDIC[$index] || {})[column.prop] || crud.DIC[column.prop]"
                      :props="column.props || crud.tableOption.props"
@@ -100,8 +101,10 @@
           <avue-rate disabled
                      v-model="row[column.prop]" />
         </span>
-        <span v-else
+        <span v-else-if="column.html"
               v-html="handleDetail(row,column)"></span>
+        <span v-else
+              v-text="handleDetail(row,column)"></span>
       </template>
     </template>
   </el-table-column>
