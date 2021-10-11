@@ -4,6 +4,7 @@
              v-bind="Object.assign(column,$uploadFun(column))"
              v-on="event"
              :column="Object.assign(column,params)"
+             :row-data="rowData"
              :dic="dic"
              ref="temp"
              :disabled="column.disabled || disabled"
@@ -89,6 +90,12 @@ export default {
       type: Boolean
     },
     column: {
+      type: Object,
+      default: () => {
+        return {}
+      }
+    },
+    rowData: {
       type: Object,
       default: () => {
         return {}
