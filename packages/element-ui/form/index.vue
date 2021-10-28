@@ -117,6 +117,7 @@
                           v-if="$scopedSlots[column.prop]"></slot>
                     <form-temp :column="column"
                                v-else
+                               :row-data="form"
                                :ref="column.prop"
                                :dic="DIC[column.prop]"
                                :props="parentOption.props"
