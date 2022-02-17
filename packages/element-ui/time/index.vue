@@ -16,7 +16,8 @@
                     :placeholder="placeholder"
                     @change="handleChange"
                     @click.native="handleClick"
-                    :disabled="disabled"></el-time-picker>
+                    :disabled="disabled"
+                    :picker-options="pickerOptions"></el-time-picker>
   </div>
 </template>
 
@@ -65,7 +66,11 @@ export default create({
     },
     format: {
       default: ""
-    }
+    },
+    pickerOptions: {
+      type: Object,
+      default: () => { }
+    },
   },
   watch: {
     text () {
