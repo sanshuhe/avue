@@ -104,6 +104,16 @@
         </span>
         <span v-else-if="column.html"
               v-html="handleDetail(row,column)"></span>
+        <template v-else-if="column.component">
+          <component
+            :is="column.component"
+            :column="column"
+            :row-data="row"
+            :row="row"
+            :index="$index"
+            v-model="row[column.prop]">
+          </component>
+        </template> 
         <span v-else
               v-text="handleDetail(row,column)"></span>
       </template>
