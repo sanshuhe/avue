@@ -111,7 +111,8 @@
             :row-data="row"
             :row="row"
             :index="$index"
-            v-model="row[column.prop]">
+            v-model="row[column.prop]"
+            @dispatch-custom-event="dispatchCustomEvent">
           </component>
         </template> 
         <span v-else
@@ -150,6 +151,9 @@ export default {
     });
   },
   methods: {
+    dispatchCustomEvent (...args) {
+      this.crud.$emit('dispatch-custom-event', ...args)
+    },
     allParams (item) {
       return {
         is: this.$typeList.video.test(item) ? 'video' : 'img'
