@@ -285,7 +285,7 @@ export default create({
         })
       };
       if (typeof this.crud.beforeClose === "function") {
-        this.crud.beforeClose(callback, this.boxType);
+        this.crud.beforeClose(callback, this.boxType, this.crud.tableForm);
       } else {
         callback();
       }
@@ -298,7 +298,7 @@ export default create({
         this.boxVisible = true;
       };
       if (typeof this.crud.beforeOpen === "function") {
-        this.crud.beforeOpen(callback, this.boxType);
+        this.crud.beforeOpen(callback, this.boxType, this.crud.tableForm);
       } else {
         callback();
       }
