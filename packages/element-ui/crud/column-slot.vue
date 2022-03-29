@@ -54,7 +54,6 @@
           <form-temp v-else
                      :column="column"
                      :row-data="row"
-                     :row="row"
                      :size="crud.isMediumSize"
                      :dic="(crud.cascaderDIC[$index] || {})[column.prop] || crud.DIC[column.prop]"
                      :props="column.props || crud.tableOption.props"
